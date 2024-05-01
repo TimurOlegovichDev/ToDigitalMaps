@@ -1,5 +1,6 @@
 package timbezhdev.ru.giscalculator;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,8 +9,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
+
+
+    private static AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    private static Graph graph = context.getBean(Graph.class);
+
     @GetMapping("/graph")
-    public String graphPage(){
+    public String graphPage(Model model){
+        graph.add(1,2);
+        graph.add(3,3);
+        model.addAttribute("graphName", graph.getName());
+        String[] data = graph.toJson();
+        for(String str : data){
+            System.out.println(str);
+        }
+        model.addAttribute("graphColor", graph.getColor());
+        model.addAttribute("heights", data[0]);
+        model.addAttribute("positions", data[1]);
         return "graph";
     }
     @GetMapping("/gis-calculator")
