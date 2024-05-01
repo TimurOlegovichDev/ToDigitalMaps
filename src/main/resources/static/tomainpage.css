@@ -1,0 +1,59 @@
+body {
+    background-image: url('Main-fotor.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.button-container {
+    overflow: hidden; /* Очистка флоатов */
+}
+
+header {
+    display: flex;
+    padding: 10px;
+    border-radius: 15px;
+    border-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 15px;
+    justify-content: left;
+    align-items: center;
+    background-color: #f1faee;
+}
+
+.title {
+    margin-left: 25px;
+    margin-right: 40px;
+    font-family: Bahnschrift;
+    font-size: 32px;
+    color: #457b9d;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    font-family: Bahnschrift;
+    font-size: 24px;
+    color: #f1faee;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 50px;
+    background-color: #4f772d;
+    margin-right: 30px;
+}
+.info {
+    text-align: right;
+    position: absolute;
+    right: 0;
+    margin: 30px;
+    color: #f1faee;
+    font-family: Bahnschrift;
+    font-size: 32px;
+    width: 450px;
+}

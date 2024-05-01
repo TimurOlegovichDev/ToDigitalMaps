@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap"
+          rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://catherineasquithgallery.com/uploads/posts/2023-01/1674313177_catherineasquithgallery-com-p-gori-serii-fon-foto-139.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .inter-font {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 200;
+            font-style: normal;
+            font-variation-settings: "slnt" 0;
+        }
+        .lbl{
+            color: white;
+            font-family: "Inter", sans-serif;
+            font-weight: bold;
+            text-align: left;
+            font-size: 46px;
+            margin: 50px;
+        }
+        .main {
+            font-family: "Inter", sans-serif;
+            font-size: 32px;
+            color: white;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+            height: 400px;
+        }
+        button{
+            color: white;
+            background-color: rgba(0,0,0,0.0);
+            font-family: "Inter", sans-serif;
+            font-size: 26px;
+            width: 150px;
+            height: 80px;
+            border-radius: 20px;
+            border-color: white;
+            margin-top: 100px;
+        }
+        .signature {
+            position: fixed; /* Фиксированное позиционирование */
+            bottom: 0; /* Помещаем подпись внизу экрана */
+            right: 0; /* Помещаем подпись слева экрана */
+            padding: 10px; /* Добавляем отступы вокруг текста подписи */
+            color: white;
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="lbl">Coordinates of point B:</div>
+<div class="main">
+    <div class="res">
+        <p>Coordinate X: {{xCoordinate}}</p>
+        <p>Coordinate Y: {{yCoordinate}}</p>
+    </div>
+    <form action="/direct" method="get">
+        <button type="Return">Return</button>
+    </form>
+</div>
+<div class="signature">
+    ©TimBezhDev
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+body {
+    background-image: url('https://catherineasquithgallery.com/uploads/posts/2023-01/1674313177_catherineasquithgallery-com-p-gori-serii-fon-foto-139.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.inter-font {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+.hello{
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    text-align: left;
+    font-size: 46px;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+.signature {
+    position: fixed; /* Фиксированное позиционирование */
+    bottom: 0; /* Помещаем подпись внизу экрана */
+    right: 0; /* Помещаем подпись слева экрана */
+    padding: 10px; /* Добавляем отступы вокруг текста подписи */
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+.oswald-font {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+.instruction{
+    font-family: "Oswald", sans-serif;
+    font-size: 32px;
+    color: #fff200;
+    max-width: 560px;
+    margin-left: 50px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.vk{
+    color: #fff200;
+}
+button{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    width: 250px;
+    height: 100px;
+    margin: 50px;
+}
+.but-block{
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+.goBack{
+    background-color: rgba(230,0,28,0.55);
+    width: 200px;
+    height: 50px;
+    margin-top: 200px;
+    margin-left: -50px;
+    margin-right: -50px;
+}

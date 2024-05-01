@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="tomainpage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add graph</title>
+</head>
+<body>
+<div class="colorPicker">
+    <h1>Choose color:</h1>
+    <input type="color" id="colorPicker" onchange="changeColor()">
+    <div id="colorValue"></div>
+
+    <script>
+        function changeColor() {
+            var selectedColor = document.getElementById("colorPicker").value;
+            document.getElementById("colorValue").innerText = "Выбранный цвет: " + selectedColor;
+            document.body.style.backgroundColor = selectedColor;
+        }
+    </script>
+</div>
+</body>

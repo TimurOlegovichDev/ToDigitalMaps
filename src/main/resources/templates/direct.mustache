@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Direct</title>
+    <link rel="stylesheet" href="directStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="nameTask">Direct geographical task</div>
+    <div class="instruction">
+        To find the coordinates of point B, enter the coordinates (X, Y) of point A, the horizontal position and the
+        directional angle. To enter minutes and seconds, enter them separated by a space, for example: 120 27 14
+    </div>
+</div>
+<div class="signature">
+    ©TimBezhDev
+</div>
+<form name="myForm" action="/direct/result" method="post" onsubmit="return validateForm()">
+    <div class="input">
+        <label for="x">Coordinate X:</label>
+        <input type="text" name="x" id="x" maxlength="6">
+        <label for="y">Coordinate Y:</label>
+        <input type="text" name="y" id="y" maxlength="6">
+        <label for="angle">Directional angle:</label>
+        <input type="text" name="angle" id="angle" maxlength="10">
+        <label for="position">Horizontal position:</label>
+        <input type="text" name="position" id="position" maxlength="6">
+        <button type="submit" class="calculate-button">Calculate</button>
+    </div>
+</form>
+<form class="return" action="/gis-calculator" method="get">
+    <button class="return">Return</button>
+</form>
+<script>
+    function validateForm() {
+        var x = document.forms["myForm"]["x"].value;
+        var y = document.forms["myForm"]["y"].value;
+        var angle = document.forms["myForm"]["angle"].value;
+        var position = document.forms["myForm"]["position"].value;
+        if (x == "" || y == "" || angle == "" || position == "") {
+            alert("Please fill out all fields");
+            return false;
+        }
+        // Проверка на положительное значение position
+        if (parseInt(position) <= 0) {
+            alert("Position should be greater than 0");
+            return false;
+        }
+        // Проверка на угол в диапазоне от 0 до 360
+        var angleNum = parseInt(angle);
+        if (angleNum < 0 || angleNum > 360) {
+            alert("Angle should be between 0 and 360");
+            return false;
+        }
+        if(!(isNumber(angleNum) && isNumber(position) && isNumber(x) && isNumber(y))){
+            alert("Please check the input values");
+            return false;
+        }
+        if (isValidAngle(angle) == -1) {
+            alert("Incorrect angle. Please enter the angle in the format (angle, minutes, seconds): 120 0 0 or 120 14 0");
+            return false;
+        } else if(isValidAngle(angle) == -2){
+            alert("Angle should be between 0 and 360");
+            return false;
+        }
+        return true;
+    }
+    function isValidAngle(angleNum) {
+        var parts = angleNum.split(" ");
+        if (parts.length != 3 || isNaN(parseInt(parts[0])) || isNaN(parseInt(parts[1])) || isNaN(parseInt(parts[2]))) {
+            return -1;
+        }
+        var angle = parseInt(parts[0]);
+        var minutes = parseInt(parts[1]);
+        var seconds = parseInt(parts[2]);
+        if(angle >= 360 && (minutes > 0 || seconds > 0)){
+            return -2;
+        }
+        if (angle < 0 || angle > 360 || minutes < 0 || seconds < 0 || seconds > 60 || minutes > 60) {
+            return -1;
+        }
+        return true;
+    }
+    function isNumber(str) {
+        return !isNaN(str);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Revers</title>
+    <link rel="stylesheet" href="directStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="nameTask">Revers geographical task</div>
+    <div class="instruction">
+        To find the directional angle and distance, enter the coordinates of point A (X, Y) and point B (X,Y).
+    </div>
+</div>
+<div class="signature">
+    ©TimBezhDev
+</div>
+<form name="myForm" action="/reverse/result" method="post" onsubmit="return validateForm()">
+    <div class="input">
+        <label for="x1">Coordinate A(X):</label>
+        <input type="text" name="x1" id="x1" maxlength="8">
+
+        <label for="y1">Coordinate A(Y):</label>
+        <input type="text" name="y1" id="y1" maxlength="8">
+
+        <label for="x2">Coordinate B(X):</label>
+        <input type="text" name="x2" id="x2" maxlength="8">
+
+        <label for="y2">Coordinate B(Y):</label>
+        <input type="text" name="y2" id="y2" maxlength="8">
+
+        <button type="submit" class="calculate-button">Calculate</button>
+    </div>
+</form>
+<form class="return" action="/gis-calculator" method="get">
+    <button class="return">Return</button>
+</form>
+<script>
+    function validateForm() {
+        var x1 = document.forms["myForm"]["x1"].value;
+        var y1 = document.forms["myForm"]["y1"].value;
+        var x2 = document.forms["myForm"]["x2"].value;
+        var y2 = document.forms["myForm"]["y2"].value;
+        if (x1 == "" || y1 == "" || x2 == "" || y2 == "") {
+            alert("Please fill out all fields");
+            return false;
+        }
+        else if(!(isNumber(x1) && isNumber(x2) && isNumber(y1) && isNumber(y2))){
+            alert("Please check the input values");
+            return false;
+        }
+        else return true;
+    }
+    function isNumber(str) {
+        return !isNaN(str);
+    }
+</script>
+</body>
+</html>
